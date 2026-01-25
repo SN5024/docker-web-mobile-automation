@@ -32,7 +32,6 @@ test.describe('Test Automation Practice - Web', () => {
         await homePage.selectDay('sunday');
         await homePage.selectCountry('usa');
         await homePage.pickColor('red');
-
         await homePage.pickDate(today);
     });
 
