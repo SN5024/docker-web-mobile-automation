@@ -15,6 +15,7 @@ export default class HomePage {
         this.startDateInput = page.locator('#start-date');
         this.endDateInput = page.locator('#end-date');
         this.submitDateButton = page.locator('.submit-btn');
+        this.uploadSingleFileSuccessMsg = page.locator('#singleFileStatus');
     }
 
     async navigate() {
@@ -75,6 +76,17 @@ export default class HomePage {
 
     async submitDateRange() {
         await this.submitDateButton.click();
+    }
+
+    async uploadSingleFile(filePath) {
+        // Sets the file to the input
+        await this.page.locator('#singleFileInput').setInputFiles(filePath);
+        // Click upload button
+        await this.page.locator('#singleFileForm button[type="submit"]').click();
+    }
+
+    async verifySingleFileUploadSuccess() {
+        return await this.uploadSingleFileSuccessMsg;
     }
 
 }
