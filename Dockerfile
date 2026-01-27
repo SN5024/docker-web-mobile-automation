@@ -1,21 +1,14 @@
-# --------------------------------------------------
-# Base Node image
-# --------------------------------------------------
+# Dockerfile for running Playwright tests
+
 FROM node:20-bullseye
 
-# Create app directory inside container
 WORKDIR /app
 
-# --------------------------------------------------
-# Copy package.json & install app deps
-# --------------------------------------------------
+# Install deps first (better cache)
 COPY package*.json ./
+RUN npm ci
 
-RUN npm install
-
-# --------------------------------------------------
-# Install OS deps required for Playwright browsers
-# --------------------------------------------------
+# OS deps for Playwright
 RUN apt-get update && \
     apt-get install -y \
         libnss3 \
@@ -40,17 +33,10 @@ RUN apt-get update && \
         libdrm2 \
     && rm -rf /var/lib/apt/lists/*
 
-# --------------------------------------------------
-# Install Playwright browsers
-# --------------------------------------------------
+# Install browsers
 RUN npx playwright install --with-deps
 
-# --------------------------------------------------
-# Copy entire app (tests + pageobjects)
-# --------------------------------------------------
+# Copy project
 COPY . .
 
-# --------------------------------------------------
-# Default command to run tests  
-# --------------------------------------------------
 CMD ["npx", "playwright", "test"]
