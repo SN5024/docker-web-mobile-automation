@@ -13,6 +13,5 @@ export default async () => {
   console.log('=================================');
   console.log('Playwright Workers:', workers ?? os.cpus().length);
   console.log('Running on CI?', isCI);
-  console.log('PW_WORKER_INDEX:', process.env.PW_WORKER_INDEX);
   console.log('=================================');
 };
