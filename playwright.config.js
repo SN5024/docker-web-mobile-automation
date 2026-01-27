@@ -1,3 +1,5 @@
+// playwright.config.js
+
 import { defineConfig, devices } from '@playwright/test';
 import env from './env.config.js';
 
@@ -5,7 +7,6 @@ export default defineConfig({
   globalSetup: './global-setup.js',
   testDir: './tests',
   timeout: 30 * 1000,
-  workers: process.env.CI ? 2 : undefined,
   reporter: [
     ['list'],
     ['html', { outputFolder: 'playwright-report', open: 'never' }]
