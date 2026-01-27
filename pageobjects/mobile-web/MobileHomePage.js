@@ -1,5 +1,5 @@
 // pageobjects/mobile-web/MobileHomePage.js
-import { expect } from '@playwright/test';
+import envConfig from '../../env.config.js';
 
 export default class MobileHomePage {
     constructor(page) {
@@ -17,7 +17,7 @@ export default class MobileHomePage {
     }
 
     async navigate() {
-        await this.page.goto('https://testautomationpractice.blogspot.com/');
+        await this.page.goto(envConfig.baseURL);
     }
 
 

@@ -1,6 +1,8 @@
 import { defineConfig, devices } from '@playwright/test';
+import env from './env.config.js';
 
 export default defineConfig({
+  globalSetup: './global-setup.js',
   testDir: './tests',
   timeout: 30 * 1000,
   workers: process.env.CI ? 2 : undefined,
@@ -8,6 +10,9 @@ export default defineConfig({
     ['list'],
     ['html', { outputFolder: 'playwright-report', open: 'never' }]
   ],
+  use: {
+    baseURL: env.baseURL,
+  },
   projects: [ // Define projects for different browsers and devices, to not combine 
     // mobile and web tests in same project
     {

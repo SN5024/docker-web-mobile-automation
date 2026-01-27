@@ -1,4 +1,5 @@
 import { expect } from '@playwright/test';
+import envConfig from '../../env.config.js';
 
 export default class HomePage {
     constructor(page) {
@@ -19,7 +20,7 @@ export default class HomePage {
     }
 
     async navigate() {
-        await this.page.goto('https://testautomationpractice.blogspot.com/');
+        await this.page.goto(envConfig.baseURL);
     }
 
     async verifyTitle() {
