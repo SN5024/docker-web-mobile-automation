@@ -15,7 +15,7 @@ const today = getToday();
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-test.describe('Test Automation Practice - Web', () => {
+test.describe('Test Automation - Web', () => {
     let homePage;
 
     test.beforeEach(async ({ page }) => {
@@ -46,6 +46,7 @@ test.describe('Test Automation Practice - Web', () => {
         await homePage.submitDateRange();
     });
 
+    
     test('Single File Upload works correctly', async () => {
         const filePath = path.resolve(__dirname, '../../resources/sample.txt');
         await homePage.uploadSingleFile(filePath);
