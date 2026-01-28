@@ -97,15 +97,17 @@ docker run --rm -e ENV=staging playwright-tests
 ## 🗂️ Project Structure
 
 ```
+docker-web-mobile-automation/
 ├── tests/                 # Playwright test files
 │   ├── web/               # Desktop web tests
 │   └── mobile-web/        # Mobile web tests
-├── pageobjects/           # Page object files
-├── package.json           # Node dependencies
-├── package-lock.json      # Lockfile
-├── playwright.config.js   # Playwright configuration
-└── Dockerfile             # Docker container setup
-
+├── pageobjects/           # Page object files for reusable locators/methods
+├── package.json           # Node.js dependencies
+├── package-lock.json      # Lockfile for deterministic installs
+├── playwright.config.js   # Playwright test configuration (browsers, reporters, testDir)
+├── Dockerfile             # Container setup with Node, Playwright, browsers
+└── .github/workflows/     # GitHub Actions CI pipelines
+    └── playwright.yml     # Dockerized test workflow (build, run, upload reports)
 ```
 ---
 
