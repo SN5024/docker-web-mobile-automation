@@ -41,7 +41,7 @@ Build Docker Image
 docker build -t playwright-tests .
 
 ```
-#### Run Tests in Docker Locally
+Run Tests in Docker Locally
 
 ```bash
 
@@ -51,7 +51,7 @@ docker run --rm \
   playwright-tests
 
 ```
-#### Run Tests with Volume Mount (for quick local changes without rebuilding)
+Run Tests with Volume Mount (for quick local changes without rebuilding)
 
 ```bash
 docker run --rm \
