@@ -1,9 +1,8 @@
 # Dockerized Playwright Test Automation
 
-[![Android Mobile Browser Tests](https://github.com/SN5024/mobile-appium/actions/workflows/android-browser-tests.yml/badge.svg)](https://github.com/SN5024/mobile-appium/actions/workflows/android-browser-tests.yml) 
-[![BrowserStack Android Tests](https://github.com/SN5024/mobile-appium/actions/workflows/browserstack-tests.yml/badge.svg)](https://github.com/SN5024/mobile-appium/actions/workflows/browserstack-tests.yml)
+[![Playwright Tests (Docker)](https://github.com/SN5024/docker-web-mobile-automation/actions/workflows/playwright.yml/badge.svg)](https://github.com/SN5024/docker-web-mobile-automation/actions/workflows/playwright.yml)
 
-A scalable, and containerized Playwright automation framework for **web and mobile web applications**.  
+A scalable and containerized Playwright automation framework for **web and mobile web applications**.  
 This framework supports running tests locally in Docker or on CI/CD pipelines like GitHub Actions, with reliable browser support and HTML reporting.
 
 ---
@@ -111,7 +110,7 @@ docker run --rm -e ENV=staging playwright-tests
 ---
 
 ## 📄 HTML Reports
-By default, Playwright generates reports in the playwright-report folder.
+By default, Playwright generates reports in the playwright-report folder after each run.
 - Locally: open playwright-report/index.html in a browser
 - CI: uploaded as an artifact in GitHub Actions
 
